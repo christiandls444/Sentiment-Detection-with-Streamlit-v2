@@ -8,6 +8,15 @@ import base64
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
+
+from textblob import TextBlob
+from wordcloud import WordCloud
+import nltk
+
+nltk.download("stopwords")
+nltk.download("punkt")
+nltk.download("wordnet")
+
 pd.set_option('display.max_colwidth', None)
 
 # Text cleaning and preprocessing
