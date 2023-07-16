@@ -103,13 +103,13 @@ def save_as_image(new_sentence, sorted_sentiments, fig):
     # Split the new_sentence into a list of words
     words = new_sentence.split()
 
-    # Group the words into lines of 12 words each
+    # Group the words into lines of 14 words each
     lines = [words[i:i+14] for i in range(0, len(words), 14)]
 
-    # Create a string with new lines for every 12 words
+    # Create a string with new lines for every 14 words
     sentence_lines = '\n'.join([' '.join(line) for line in lines])
 
-    # Display the sentence with new lines every 12 words
+    # Display the sentence with new lines every 14 words
     st_image.text((100, 50), f"Your sentence:\n{sentence_lines}", fill="black", font=font)
 
     # Calculate the height for each sentiment line
