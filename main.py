@@ -99,7 +99,7 @@ def save_as_image(new_sentence, sorted_sentiments, fig):
     # Create a new PIL image with the text
     image = Image.new("RGB", (1200, 1200), "white")
     st_image = ImageDraw.Draw(image)
-    font = ImageFont.truetype("fonts/arial.ttf", 18)
+    font = ImageFont.truetype("./fonts/Arial.ttf", 18)
     st_image.text((100, 50), f"Your sentence: {new_sentence}", fill="black", font=font)
 
     # Calculate the height for each sentiment line
