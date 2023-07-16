@@ -100,11 +100,21 @@ def save_as_image(new_sentence, sorted_sentiments, fig):
     image = Image.new("RGB", (1200, 1200), "white")
     st_image = ImageDraw.Draw(image)
     font = ImageFont.truetype("./fonts/Arial.ttf", 18)
-    st_image.text((100, 50), f"Your sentence: {new_sentence}", fill="black", font=font)
+    # Split the new_sentence into a list of words
+    words = new_sentence.split()
+
+    # Group the words into lines of 12 words each
+    lines = [words[i:i+14] for i in range(0, len(words), 14)]
+
+    # Create a string with new lines for every 12 words
+    sentence_lines = '\n'.join([' '.join(line) for line in lines])
+
+    # Display the sentence with new lines every 12 words
+    st_image.text((100, 50), f"Your sentence:\n{sentence_lines}", fill="black", font=font)
 
     # Calculate the height for each sentiment line
     sentiment_height = 30
-    sentiment_start_y = 100
+    sentiment_start_y = 180
     for i, sentiment in enumerate(sorted_sentiments):
         sentiment_y = sentiment_start_y + (i * sentiment_height)
         st_image.text((100, sentiment_y), f"Predicted sentiment: {sentiment}", fill="black", font=font)
